@@ -21,7 +21,9 @@ export default {
         const reBase64 = /^\s*data:([a-z]+\/[a-z0-9-+.]+(;[a-z-]+=[a-z0-9-]+)?)?(;base64)?,([a-z0-9!$&',()*+;=\-._~:@\/?%\s]*?)\s*$/i;
         const webUrl = config.baseUrl + config.appUrl + 'assets/';
         const replaceUrl = webUrl.replace('[webport]', this.getWebType());
+        let replaceUrl = webUrl.replace('[webport]', this.getWebType());
 
+        replaceUrl = replaceUrl.replace(/static\.tcy365\.com\:2505/g, 'staticpre.tcy365.com:2505');
         if (reBase64.test(src) || this.getWebType() === '') {
             return src;
         }
