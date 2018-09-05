@@ -30,7 +30,10 @@ var portReplace = function() {
                 var result = data.replace(/(\.)?\/assets/gi, currUrl);
 
                 result = result.replace(/<configBaseUrl>/g, baseUrl);
-
+				result = result.replace(
+                    /static\.tcy365\.com\:2505/g,
+                    'staticpre.tcy365.com:2505'
+                );
                 // console.log(currUrl);
                 fs.writeFile(f, result, 'utf8', function(err) {
                     if (err) return console.log(err);
