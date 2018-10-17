@@ -12,7 +12,5 @@ Http.initHttp(Vue);
 new Vue({
     el: '#app',
     router,
-    components: {
-        app
-    }
+    render: h => h(app)
 });
