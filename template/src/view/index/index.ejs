@@ -10,31 +10,31 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta name="viewport" content="initial-scale=1,maximum-scale=1, minimum-scale=1">
-	<link rel="shortcut icon" href="//static.tcy365.com/uc/common/images/favicon.ico">
-     <script>
-                ! function (e, t) {
-                    var n = t.documentElement,
-                        d = e.devicePixelRatio || 1;
+    <link rel="shortcut icon" href="//static.tcy365.com/uc/common/images/favicon.ico">
+    <script>
+        ! function (e, t) {
+            var n = t.documentElement,
+                d = e.devicePixelRatio || 1;
 
-                    function i() {
-                        var e = n.clientWidth / 7.5;
-                        if (n.clientWidth > n.clientHeight) {
-                            e = n.clientHeight / 7.5;
-                        }
-                        n.style.fontSize = e + "px";
-                    } if (function e() { t.body ? t.body.style.fontSize = "16px" : t.addEventListener("DOMContentLoaded", e) }(), i(), e.addEventListener("resize", i), e.addEventListener("pageshow", function (e) { e.persisted && i() }), d >= 2) {
-                        var o = t.createElement("body"),
-                            a = t.createElement("div");
-                        a.style.border = ".5px solid transparent", o.appendChild(a), n.appendChild(o), 1 === a.offsetHeight && n.classList.add("hairlines"), n.removeChild(o)
-                    }
-                }(window, document)
-            </script>
+            function i() {
+                var e = n.clientWidth / 7.5;
+                if (n.clientWidth > n.clientHeight) {
+                    e = n.clientHeight / 7.5;
+                }
+                n.style.fontSize = e + "px";
+            } if (function e() { t.body ? t.body.style.fontSize = "16px" : t.addEventListener("DOMContentLoaded", e) }(), i(), e.addEventListener("resize", i), e.addEventListener("pageshow", function (e) { e.persisted && i() }), d >= 2) {
+                var o = t.createElement("body"),
+                    a = t.createElement("div");
+                a.style.border = ".5px solid transparent", o.appendChild(a), n.appendChild(o), 1 === a.offsetHeight && n.classList.add("hairlines"), n.removeChild(o)
+            }
+        }(window, document)
+    </script>
     <!-- 不要修改 -->
     <% for (var css in htmlWebpackPlugin.files.css) { %>
-        <link href="<%=htmlWebpackPlugin.files.css[css] %>" rel="stylesheet">
-        <% } %>
+    <link href="<%=htmlWebpackPlugin.files.css[css] %>" rel="stylesheet">
+    <% } %>
 
-           
+
 </head>
 
 <body>
@@ -52,8 +52,8 @@
     <% } %>
     <!-- built files will be auto injected 不要修改 -->
     <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
-        <script type="text/javascript" src="<%=htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
-        <% } %>
+    <script type="text/javascript" src="<%=htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
+    <% } %>
 </body>
 
 </html>

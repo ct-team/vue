@@ -28,6 +28,8 @@ var portReplace = function() {
                 var currUrl = baseUrl + 'assets';
 
                 var result = data.replace(/(\.)?\/assets/gi, currUrl);
+                
+                result = result.replace(/(\.)?\/static\//gi, currUrl+'/');
 
                 result = result.replace(/<configBaseUrl>/g, baseUrl);
 				result = result.replace(
