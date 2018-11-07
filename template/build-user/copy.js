@@ -8,7 +8,13 @@ const src = path.join(__dirname, '../dist/dest');
 var root = path.resolve(__dirname, '../dist');
 
 var copyNum = 0;
-
+//
+var clearEnv = function(result, env) {
+    var s = '<div[^>]*data-hide-env=(' + env + ').*?[^>]*>(.*?)</div>';
+    console.log(s);
+    var re = new RegExp(s, 'g');
+    return result.replace(re, '');
+};
 //端口替换
 var portReplace = function() {
     console.log('Replace');
@@ -28,15 +34,17 @@ var portReplace = function() {
                 var currUrl = baseUrl + 'assets';
 
                 var result = data.replace(/(\.)?\/assets/gi, currUrl);
-                
-                result = result.replace(/(\.)?\/static\//gi, currUrl+'/');
+
+                result = result.replace(/(\.)?\/static\//gi, currUrl + '/');
 
                 result = result.replace(/<configBaseUrl>/g, baseUrl);
-				result = result.replace(
+                result = result.replace(
                     /static\.tcy365\.com\:2505/g,
                     'staticpre.tcy365.com:2505'
                 );
-                // console.log(currUrl);
+
+                result = clearEnv(result, obj.env);
+
                 fs.writeFile(f, result, 'utf8', function(err) {
                     if (err) return console.log(err);
                 });
@@ -55,7 +63,7 @@ var jsj = function(callback) {
         }
     }, 100);
 };
-
+//拷贝项目
 var copy = function() {
     copyNum = 0;
     list.forEach(obj => {

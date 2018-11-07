@@ -6,14 +6,14 @@ module.exports = {
    /* px2rem: null,//px2rem 转换内容 如 { rootValue: 100 } 非rem项目 使用null */
 	px2rem:{
 		rootValue: 100, //比例
-		selectorBlackList: ['weui', 'border', 'scroller', 'dp', 'demo1-item', '.select', 'vux', 'm-inline', 'markdown'] //不进行rem转换的样式
+		selectorBlackList: ['vux'] //不进行rem转换的样式
 	},
     list: [
-        { title: '1505-stable', webPort: '.org:1505' },
-        { title: '1507-test', webPort: '.org:1507' },
-        { title: '1506-develop', webPort: '.org:1506' },
-        { title: '2505-pre', webPort: '.com:2505' },
-        { title: '80-static', webPort: '.com' }
+        { title: '1505-stable', webPort: '.org:1505', env:1505 },
+        { title: '1507-test', webPort: '.org:1507', env:1507 },
+        { title: '1506-develop', webPort: '.org:1506', env:1506 },
+        { title: '2505-pre', webPort: '.com:2505', env:2505 },
+        { title: '80-static', webPort: '.com', env:80 }
     ],
     proxy: {
         '/api': {//印射为/api            

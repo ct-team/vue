@@ -9,6 +9,7 @@
     <meta http-equiv="expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Cache-control" content="no-cache">
+    <meta content="telephone=no,email=no" name=format-detection />
     <meta name="viewport" content="initial-scale=1,maximum-scale=1, minimum-scale=1">
     <link rel="shortcut icon" href="//static.tcy365.com/uc/common/images/favicon.ico">
     <script>
@@ -29,11 +30,11 @@
             }
         }(window, document)
     </script>
-    <!-- 不要修改 -->
+    <!-- start 不要修改 -->
     <% for (var css in htmlWebpackPlugin.files.css) { %>
     <link href="<%=htmlWebpackPlugin.files.css[css] %>" rel="stylesheet">
     <% } %>
-
+    <!-- end 不要修改 -->
 
 </head>
 
@@ -44,7 +45,7 @@
 
 
 
-    <!-- 不要修改 -->
+    <!-- start 不要修改 -->
     <% if (buildConfig.chunk) { %>
     <script>
         var configBaseUrl = '<configBaseUrl>';
@@ -54,6 +55,10 @@
     <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
     <script type="text/javascript" src="<%=htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
     <% } %>
+    <!-- end 不要修改 -->
+    <div data-hide-env="80">
+    <script type="text/javascript" src="https://res.wx.qq.com/mmbizwap/zh_CN/htmledition/js/vconsole/2.5.1/vconsole.min.js"></script>
+    </div>
 </body>
 
 </html>
