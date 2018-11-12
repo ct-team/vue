@@ -28,8 +28,10 @@
         <script>
             <% if(htmlWebpackPlugin.options.buildConfig.chunk) { %>
             var configBaseUrl = "<configBaseUrl>";
-            <% } %> 
+            <% } %>
+            <% if(htmlWebpackPlugin.options.buildConfig.check) { %>
             var PageConfig = {jstracker: { app:"<% if(htmlWebpackPlugin.options.buildConfig.appID){%><%='check_'+htmlWebpackPlugin.options.buildConfig.appID%><% } %>" } };
+            <% } %>
         </script>
 
         <!-- built files will be auto injected 不要修改 -->
@@ -38,8 +40,9 @@
         <% } %>
 
         <!-- 错误收集脚本 -->
+        <% if(htmlWebpackPlugin.options.buildConfig.check) { %>
         <script src="//static.tcy365.com/cdn/jstracker/3.0.1/jstracker.js" type="text/javascript" crossorigin></script>
-
+        <% } %>
         <!-- end 不要修改 -->
         <!-- start 自定义 -->
         <div data-hide-env="80">

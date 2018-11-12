@@ -1,5 +1,6 @@
 module.exports = {
     chunk: true, //是否开启动态chunk 默认false 开启后 页面上会出现 var configBaseUrl = '<configBaseUrl>';
+    check: true,//是否增加错误收集
     assetsPublicPath: './', // 只能为 ‘/’ 或 ‘./’
     appID: 'test', //项目服务代号
     baseUrl: '//static.tcy365[webport]', //项目资源根目录 [webport] 后缀标识符 默认不修改
