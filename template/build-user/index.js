@@ -25,7 +25,7 @@ module.exports.getEntry = function() {
     return map;
 };
 
-module.exports.getProdHtmlPlugin = function(env, config) {
+module.exports.getProdHtmlPlugin = function(env, tconfig) {
     const entryHtml = glob.sync(root + '/*/index.ejs');
     const arr = [];
 
@@ -36,11 +36,12 @@ module.exports.getProdHtmlPlugin = function(env, config) {
             template: filePath,
             // 文件名称
             filename:
-                env === 'testing' ? filename + '.html' : config.build[filename],
+                env === 'testing' ? filename + '.html' : tconfig.build[filename],
             // 页面模板需要加对应的js脚本，如果不加这行则每个页面都会引入所有的js脚本
             chunks: ['manifest', 'vendor', filename],
             inject: false,
             isLocal: true,
+            buildConfig: config,
             minify: {
                 removeComments: true,
                 collapseWhitespace: true,
@@ -67,6 +68,7 @@ module.exports.getDevHtmlPlugin = function() {
             filename: filename + '.html',
             // 页面模板需要加对应的js脚本，如果不加这行则每个页面都会引入所有的js脚本
             chunks: ['manifest', 'vendor', filename],
+            buildConfig: config,
             inject: false,
             isLocal: true
         };
