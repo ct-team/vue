@@ -5,7 +5,7 @@
 const path = require('path');
 const buildUser = require('../build-user');
 const buildConfig = require('../build-user/config');
-console.log(buildConfig.proxy);
+//console.log(buildConfig.proxy);
 
 var merge = require('webpack-merge');
 var newObj = {};

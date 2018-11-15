@@ -11,13 +11,13 @@ var copyNum = 0;
 //
 var clearEnv = function(result, env) {
     var s = '<div[^>]*data-hide-env=(' + env + ').*?[^>]*>(.*?)</div>';
-    console.log(s);
+    //console.log(s);
     var re = new RegExp(s, 'g');
     return result.replace(re, '');
 };
 //端口替换
 var portReplace = function() {
-    console.log('Replace');
+    //console.log('Replace');
     list.forEach(obj => {
         const entryHtml = glob.sync(root + '/' + obj.title + '/*.html');
         var portStr = obj.webPort;

@@ -14,18 +14,20 @@
             <img :src="testImgUrl"
                  alt=""
                  class="img">
+                 <img src="../../assets/img/test2.png"
+                 alt=""
+                 class="img">
         </div>
     </div>
 
 </template>
 
 <script>
-import getImgSrc from '../../assets/js/image-check.js';
 import testImg from '../../assets/img/test.png';
 export default {
     data() {
         return {
-            testImgUrl: getImgSrc.getImgSrc(testImg)
+            testImgUrl: testImg
         };
     }
 };

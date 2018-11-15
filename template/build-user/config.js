@@ -1,4 +1,5 @@
 module.exports = {
+    version:'1.10.1',
     chunk: true, //是否开启动态chunk 默认false 开启后 页面上会出现 var configBaseUrl = '<configBaseUrl>';
     check: true,//是否增加错误收集
     assetsPublicPath: './', // 只能为 ‘/’ 或 ‘./’
