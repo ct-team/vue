@@ -33,7 +33,7 @@ var portReplace = function() {
                     config.appUrl;
                 var currUrl = baseUrl + 'assets';
 
-                var result = data.replace(/(\.)?\/assets/gi, currUrl);
+                var result = data.replace(/(={1})((\.)?\/assets)/gi, '$1'+currUrl);
 
                 result = result.replace(/(\.)?\/static\//gi, currUrl + '/');
 
