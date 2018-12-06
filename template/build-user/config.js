@@ -1,5 +1,5 @@
 module.exports = {
-    version:'1.10.2',
+    version:'1.11.0',
     chunk: true, //是否开启动态chunk 默认false 开启后 页面上会出现 var configBaseUrl = '<configBaseUrl>';
     check: true,//是否增加错误收集
     assetsPublicPath: './', // 只能为 ‘/’ 或 ‘./’
@@ -9,13 +9,14 @@ module.exports = {
     /* px2rem: null,//px2rem 转换内容 如 { rootValue: 100 } 非rem项目 使用null */
     px2rem: {
         rootValue: 100, //比例
-        selectorBlackList: ['vux'] //不进行rem转换的样式
+        selectorBlackList: ['vux','weui'] //不进行rem转换的样式
     },
     list: [
         { title: '1505-stable', webPort: '.org:1505', env: 1505 },
         { title: '1507-test', webPort: '.org:1507', env: 1507 },
         { title: '1506-develop', webPort: '.org:1506', env: 1506 },
         { title: '2505-pre', webPort: '.com:2505', env: 2505 },
+        { title: '2506-pre', webPort: '.com:2506', env: 2506 },
         { title: '80-static', webPort: '.com', env: 80 }
     ],
     proxy: {

@@ -13,6 +13,7 @@ var clearEnv = function(result, env) {
     var s = '<div[^>]*data-hide-env=(' + env + ').*?[^>]*>(.*?)</div>';
     //console.log(s);
     var re = new RegExp(s, 'g');
+
     return result.replace(re, '');
 };
 //端口替换
@@ -33,7 +34,7 @@ var portReplace = function() {
                     config.appUrl;
                 var currUrl = baseUrl + 'assets';
 
-                var result = data.replace(/(={1})((\.)?\/assets)/gi, '$1'+currUrl);
+                var result = data.replace(/(={1})((\.)?\/assets)/gi, '$1' + currUrl);
 
                 result = result.replace(/(\.)?\/static\//gi, currUrl + '/');
 
@@ -41,6 +42,11 @@ var portReplace = function() {
                 result = result.replace(
                     /static\.tcy365\.com\:2505/g,
                     'staticpre.tcy365.com:2505'
+                );
+
+                result = result.replace(
+                    /static\.tcy365\.com\:2506/g,
+                    'staticpre.tcy365.com:2506'
                 );
 
                 result = clearEnv(result, obj.env);
@@ -113,6 +119,7 @@ var replaceManifest = function() {
 // copy();
 // jsj(portReplace);
 //replaceManifest();
+
 module.exports.init = function() {
     copy();
     jsj(portReplace);
