@@ -34,6 +34,7 @@ module.exports.getProdHtmlPlugin = function(env, tconfig) {
         const conf = {
             // 模板来源
             template: filePath,
+            currenv:env,
             // 文件名称
             filename:
                 env === 'testing' ? filename + '.html' : tconfig.build[filename],
@@ -55,7 +56,7 @@ module.exports.getProdHtmlPlugin = function(env, tconfig) {
     return arr;
 };
 
-module.exports.getDevHtmlPlugin = function() {
+module.exports.getDevHtmlPlugin = function(env) {
     const entryHtml = glob.sync(root + '/*/index.ejs');
     const arr = [];
 
@@ -64,6 +65,7 @@ module.exports.getDevHtmlPlugin = function() {
         const conf = {
             // 模板来源
             template: filePath,
+            currenv:'development',
             // 文件名称
             filename: filename + '.html',
             // 页面模板需要加对应的js脚本，如果不加这行则每个页面都会引入所有的js脚本

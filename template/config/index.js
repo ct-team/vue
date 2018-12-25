@@ -57,8 +57,8 @@ var obj = {
         assetsRoot: path.resolve(__dirname, '../dist'),
         //assetsSubDirectory: 'static',
         assetsSubDirectory: 'assets',
-        //assetsPublicPath: './',
-        assetsPublicPath: buildUser.assetsPublicPath(),
+        assetsPublicPath: './',
+        //assetsPublicPath: buildUser.assetsPublicPath(),
         /**
          * Source Maps
          */

@@ -11,39 +11,37 @@
         <meta content="telephone=no,email=no" name="format-detection" />
         <meta name="viewport" content="initial-scale=1,maximum-scale=1, minimum-scale=1" />
         <link rel="shortcut icon" href="//static.tcy365.com/uc/common/images/favicon.ico" />
-        <script>
-            !(function(e,t){var n=t.documentElement,d=e.devicePixelRatio||1;function i(){var e=n.clientWidth/7.5;if(n.clientWidth>n.clientHeight){e=n.clientHeight/7.5}n.style.fontSize=e+"px"}if(((function e(){t.body?(t.body.style.fontSize="16px"):t.addEventListener("DOMContentLoaded",e)})(),i(),e.addEventListener("resize",i),e.addEventListener("pageshow",function(e){e.persisted&&i()}),d>=2)){var o=t.createElement("body"),a=t.createElement("div");(a.style.border=".5px solid transparent"),o.appendChild(a),n.appendChild(o),1===a.offsetHeight&&n.classList.add("hairlines"),n.removeChild(o)}})(window,document);
-        </script>
         <!-- start 不要修改 -->
+        <% if(htmlWebpackPlugin.options.currenv == "production") { %>
+        <meta name="AppPublic" content="<configBaseUrl>">
+        <% } %>
         <% for (var css in htmlWebpackPlugin.files.css) { %>
         <link href="<%=htmlWebpackPlugin.files.css[css] %>" rel="stylesheet" />
         <% } %>
         <!-- end 不要修改 -->
+        <script>
+            !(function(e,t){var n=t.documentElement,d=e.devicePixelRatio||1;function i(){var e=n.clientWidth/7.5;if(n.clientWidth>n.clientHeight){e=n.clientHeight/7.5}n.style.fontSize=e+"px"}if(((function e(){t.body?(t.body.style.fontSize="16px"):t.addEventListener("DOMContentLoaded",e)})(),i(),e.addEventListener("resize",i),e.addEventListener("pageshow",function(e){e.persisted&&i()}),d>=2)){var o=t.createElement("body"),a=t.createElement("div");(a.style.border=".5px solid transparent"),o.appendChild(a),n.appendChild(o),1===a.offsetHeight&&n.classList.add("hairlines"),n.removeChild(o)}})(window,document);
+        </script>
     </head>
 
     <body>
         <div id="app"></div>
-
         <!-- start 不要修改 -->
         <script>
-            <% if(htmlWebpackPlugin.options.buildConfig.chunk) { %>
-            var configBaseUrl = "<configBaseUrl>";
-            <% } %>
             <% if(htmlWebpackPlugin.options.buildConfig.check) { %>
             var PageConfig = {jstracker: { app:"<% if(htmlWebpackPlugin.options.buildConfig.appID){%><%='check_'+htmlWebpackPlugin.options.buildConfig.appID%><% } %>" } };
             <% } %>
         </script>
-
         <!-- built files will be auto injected 不要修改 -->
         <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
         <script type="text/javascript" src="<%=htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
         <% } %>
-
         <!-- 错误收集脚本 -->
         <% if(htmlWebpackPlugin.options.buildConfig.check) { %>
         <script src="//static.tcy365.com/cdn/jstracker/3.0.1/jstracker.js" type="text/javascript" crossorigin></script>
         <% } %>
         <!-- end 不要修改 -->
+        
         <!-- start 自定义 -->
         <div data-hide-env="80">
             <script type="text/javascript" src="https://res.wx.qq.com/mmbizwap/zh_CN/htmledition/js/vconsole/2.5.1/vconsole.min.js"></script>

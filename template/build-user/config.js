@@ -1,11 +1,10 @@
 module.exports = {
-    version:'1.11.0',
-    chunk: true, //是否开启动态chunk 默认false 开启后 页面上会出现 var configBaseUrl = '<configBaseUrl>';
+    version:'1.12.0',
+    chunk: true, //是否开启动态chunk
     check: true,//是否增加错误收集
-    assetsPublicPath: './', // 只能为 ‘/’ 或 ‘./’
     appID: 'test', //项目服务代号
     baseUrl: '//static.tcy365[webport]', //项目资源根目录 [webport] 后缀标识符 默认不修改
-    appUrl: '/mobile/test/20180821/', //项目路径  如   /mobile/test/
+    appUrl: '/test/', //项目路径  如   /mobile/test/
     /* px2rem: null,//px2rem 转换内容 如 { rootValue: 100 } 非rem项目 使用null */
     px2rem: {
         rootValue: 100, //比例

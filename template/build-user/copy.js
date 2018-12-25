@@ -16,6 +16,25 @@ var clearEnv = function(result, env) {
 
     return result.replace(re, '');
 };
+
+var clearOtherEnv = function(result, env) {
+    var envList = [];
+    var ruleEnv = '';
+
+    list.forEach(function(item){
+        if(item.env != env){
+            envList.push(item.env);
+        }        
+    });
+
+    ruleEnv = envList.join('|');
+
+    var s = '<div[^>]*data-env=(' + ruleEnv + ').*?[^>]*>(.*?)</div>';
+    //console.log(s);
+    var re = new RegExp(s, 'g');
+
+    return result.replace(re, '');
+};
 //端口替换
 var portReplace = function() {
     //console.log('Replace');
@@ -50,6 +69,7 @@ var portReplace = function() {
                 );
 
                 result = clearEnv(result, obj.env);
+                result = clearOtherEnv(result, obj.env);
 
                 fs.writeFile(f, result, 'utf8', function(err) {
                     if (err) return console.log(err);
@@ -123,7 +143,7 @@ var replaceManifest = function() {
 module.exports.init = function() {
     copy();
     jsj(portReplace);
-    if (config.chunk) {
-        replaceManifest();
-    }
+    // if (config.chunk) {
+    //     replaceManifest();
+    // }
 };
