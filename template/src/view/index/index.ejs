@@ -10,8 +10,9 @@
         <meta http-equiv="Cache-control" content="no-cache" />
         <meta content="telephone=no,email=no" name="format-detection" />
         <meta name="viewport" content="initial-scale=1,maximum-scale=1, minimum-scale=1" />
-        <link rel="shortcut icon" href="//static.tcy365.com/uc/common/images/favicon.ico" />
+        <link rel="shortcut icon" href="//static.tcy365.com/uc/common/images/favicon.ico" />        
         <!-- start 不要修改 -->
+        <meta name="version" content="<%=htmlWebpackPlugin.options.buildConfig.appVersion%>">
         <% if(htmlWebpackPlugin.options.currenv == "production") { %>
         <meta name="AppPublic" content="<configBaseUrl>">
         <% } %>

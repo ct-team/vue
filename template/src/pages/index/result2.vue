@@ -11,6 +11,7 @@
             is-link></cell>
     </group>
     <div>
+
       <img :src="testImgUrl"
            alt=""
            class="img">
@@ -24,12 +25,10 @@
 </template>
 
 <script>
-//import testImg from '../../assets/img/test.png';
-
 export default {
     data() {
         return {
-            testImgUrl: require('../../assets/img/test.png')
+            testImgUrl: require('@/assets/img/test.png')
         };
     },
     methods: {
@@ -51,10 +50,10 @@ div .img {
 h2 {
   color: #123123;
 }
-.imgtest{
-    background-image: url(../../assets/img/test3.png);
-    width:100px;
-    height: 100px;
-    background-size:cover;
+.imgtest {
+  background-image: url(../../assets/img/test3.png);
+  width: 100px;
+  height: 100px;
+  background-size: cover;
 }
 </style>

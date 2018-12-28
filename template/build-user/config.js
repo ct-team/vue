@@ -1,10 +1,11 @@
 module.exports = {
-    version:'1.12.0',
+    version:'1.13.0',
     chunk: true, //是否开启动态chunk
     check: true,//是否增加错误收集
     appID: 'test', //项目服务代号
+    appVersion:'1.0.0', //项目版本 会显示在页面meta内
     baseUrl: '//static.tcy365[webport]', //项目资源根目录 [webport] 后缀标识符 默认不修改
-    appUrl: '/test/', //项目路径  如   /mobile/test/
+    appUrl: '/test/', //项目路径  如   /mobile/test/    
     /* px2rem: null,//px2rem 转换内容 如 { rootValue: 100 } 非rem项目 使用null */
     px2rem: {
         rootValue: 100, //比例

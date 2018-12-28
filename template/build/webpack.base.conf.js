@@ -65,7 +65,7 @@ const webpackConfig = {
                 test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
                 use: [
                     'url-loader?limit=10000&name=' +
-                        utils.assetsPath('img/[name].[hash:7].[ext]'),
+                        utils.assetsPath('img/[name].[hash:10].[ext]'),
                     {
                         loader: 'image-webpack-loader',
                         options: {
@@ -116,7 +116,7 @@ const webpackConfig = {
                 loader: 'url-loader',
                 options: {
                     limit: 10000,
-                    name: utils.assetsPath('media/[name].[hash:7].[ext]')
+                    name: utils.assetsPath('media/[name].[hash:10].[ext]')
                 }
             },
             {
@@ -124,7 +124,7 @@ const webpackConfig = {
                 loader: 'url-loader',
                 options: {
                     limit: 10000,
-                    name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
+                    name: utils.assetsPath('fonts/[name].[hash:10].[ext]')
                 }
             }
         ]

@@ -15,18 +15,28 @@
             <x-button type="primary"
                       @click.native='onSubmitHandler'>提交</x-button>
         </div>
+        <div>
+      <img :src="testImgUrl"
+           alt=""
+           class="img">
+      <img src="../../assets/img/test2.png"
+           alt=""
+           class="img">
+    </div>
+    <div class="imgtest"></div>
     </div>
 </template>
 
 <script>
 import { XButton, XInput } from 'vux';
-import { setTimeout } from 'timers';
+
 export default {
     data() {
         return {
             name: '测试',
             idCard: '343422198709099876',
-            mobile: '136567898089'
+            mobile: '136567898089',
+            testImgUrl: require('../../assets/img/test.png')
         };
     },
     created() {
@@ -61,5 +71,16 @@ h1 {
     text-align: center;
     font-size: 36px;
     color: #ffffff;
+}
+div .img {
+  display: block;
+  width: 300px;
+  height: auto;
+}
+.imgtest{
+    background-image: url(../../assets/img/test3.png);
+    width:100px;
+    height: 100px;
+    background-size:cover;
 }
 </style>
