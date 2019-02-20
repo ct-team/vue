@@ -4,6 +4,7 @@ import Http from '@/assets/js/http.js';
 import '../../assets/css/reset.css';
 import {Cell, Group, LoadingPlugin} from 'vux';
 import app from './APP';
+import { Landscape } from 'nat';
 
 var $path = document.querySelector('meta[name="AppPublic"]');
 
@@ -14,7 +15,9 @@ Vue.use(LoadingPlugin);
 Vue.component('cell', Cell);
 Vue.component('group', Group);
 Http.initHttp(Vue);
-
+Vue.use(Landscape, {
+    isUseCommStyle: true
+});
 new Vue({
     el: '#app',
     router,

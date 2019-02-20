@@ -5,6 +5,8 @@ const config = require('../config');
 const vuxLoader = require('vux-loader');
 const vueLoaderConfig = require('./vue-loader.conf');
 const buildUser = require('../build-user');
+var TransformModulesPlugin = require('webpack-transform-modules-plugin');
+var PostCompilePlugin = require('webpack-post-compile-plugin');
 
 function resolve(dir) {
     return path.join(__dirname, '..', dir);
@@ -27,6 +29,7 @@ const webpackConfig = {
     // entry: {
     //   app: './src/main.js'
     // },
+    plugins: [new PostCompilePlugin(), new TransformModulesPlugin()],
     entry: buildUser.getEntry(),
     output: {
         path: config.build.assetsRoot,
@@ -42,7 +45,6 @@ const webpackConfig = {
             vue$: 'vue/dist/vue.esm.js',
             '@': resolve('src')
         }
-
     },
     module: {
         rules: [
@@ -144,7 +146,8 @@ const webpackConfig = {
 };
 //vux
 module.exports = vuxLoader.merge(webpackConfig, {
-    plugins: [ {
+    plugins: [
+        {
             name: 'vux-ui'
         },
         {
@@ -153,5 +156,6 @@ module.exports = vuxLoader.merge(webpackConfig, {
         },
         {
             name: 'duplicate-style'
-        }]
+        }
+    ]
 });
