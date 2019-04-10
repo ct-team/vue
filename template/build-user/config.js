@@ -1,5 +1,5 @@
 module.exports = {
-    version:'1.13.0',
+    version:'1.16.0',
     chunk: true, //是否开启动态chunk
     check: true,//是否增加错误收集
     appID: 'test', //项目服务代号
