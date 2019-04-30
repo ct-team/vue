@@ -1,8 +1,9 @@
 module.exports = {
-    version:'1.16.0',
+    version:'1.17.0',//(不用修改)
     chunk: true, //是否开启动态chunk
     check: true,//是否增加错误收集
-    appID: 'test', //项目服务代号
+    isHttps: false,//是否使用https true 的话1505 1507 2505资源将使用https资源地址
+    appID: 'test', //项目服务代号（错误收集使用）
     appVersion:'1.0.0', //项目版本 会显示在页面meta内
     baseUrl: '//static.tcy365[webport]', //项目资源根目录 [webport] 后缀标识符 默认不修改
     appUrl: '/test/', //项目路径  如   /mobile/test/    
@@ -16,7 +17,6 @@ module.exports = {
         { title: '1507-test', webPort: '.org:1507', env: 1507 },
         { title: '1506-develop', webPort: '.org:1506', env: 1506 },
         { title: '2505-pre', webPort: '.com:2505', env: 2505 },
-        { title: '2506-pre', webPort: '.com:2506', env: 2506 },
         { title: '80-static', webPort: '.com', env: 80 }
     ],
     proxy: {

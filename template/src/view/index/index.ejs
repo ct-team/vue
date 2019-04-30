@@ -53,9 +53,10 @@
     <% } %>
     <!-- 错误收集脚本 -->
     <% if(htmlWebpackPlugin.options.buildConfig.check) { %>
-    <script src="//static.tcy365.com/cdn/jstracker/3.0.1/jstracker.js" type="text/javascript" crossorigin></script>
+    <script src="//static.tcy365.com/cdn/jstracker/3.0.1/jstracker.js?t=1" type="text/javascript" crossorigin></script>
     <% } %>
     <!-- end 不要修改 -->
+    <script src="./static/a.js?t=_<%=(new Date()).getTime()%>"></script>
 </body>
 
 </html>

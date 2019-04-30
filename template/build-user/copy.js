@@ -56,18 +56,24 @@ var portReplace = function() {
                 var result = data.replace(/(={1})((\.)?\/assets)/gi, '$1' + currUrl);
 
                 //result = result.replace(/(\.)?\/static\//gi, currUrl + '/');
-                result = result.replace(/(={1})((\.)?\/static\/)/gi, '$1' + currUrl + '/');
+                result = result.replace(/(={1}(\")?(\')?)((\.)?\/static\/)/gi, '$1' + currUrl + '/');
 
                 result = result.replace(/<configBaseUrl>/g, baseUrl);
-                result = result.replace(
-                    /static\.tcy365\.com\:2505/g,
-                    'staticpre.tcy365.com:2505'
-                );
-
-                result = result.replace(
-                    /static\.tcy365\.com\:2506/g,
-                    'staticpre.tcy365.com:2506'
-                );
+                if(config.isHttps){
+                    result = result.replace(
+                        /static\.tcy365\.com\:2505/g,
+                        'prestatic.tcy365.com'
+                    );
+                    result = result.replace(
+                        /static\.tcy365\.org\:1507/g,
+                        'teststatic.tcy365.com'
+                    );
+                    result = result.replace(
+                        /static\.tcy365\.org\:1505/g,
+                        'innerstatic.tcy365.com'
+                    );
+                }
+                
 
                 result = clearEnv(result, obj.env);
                 result = clearOtherEnv(result, obj.env);
@@ -143,7 +149,10 @@ var replaceManifest = function() {
 
 module.exports.init = function() {
     copy();
+ 
     jsj(portReplace);
+
+    
     // if (config.chunk) {
     //     replaceManifest();
     // }
