@@ -72,6 +72,11 @@ var portReplace = function() {
                         /static\.tcy365\.org\:1505/g,
                         'innerstatic.tcy365.com'
                     );
+                }else{
+                    result = result.replace(
+                    /static\.tcy365\.com\:2505/g,
+                    'staticpre.tcy365.com:2505'
+                );
                 }
                 
 
