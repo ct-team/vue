@@ -59,11 +59,11 @@ var portReplace = function() {
                 result = result.replace(/(={1}(\")?(\')?)((\.)?\/static\/)/gi, '$1' + currUrl + '/');
 
                 result = result.replace(/<configBaseUrl>/g, baseUrl);
-                if(config.isHttps){
-                    result = result.replace(
-                        /static\.tcy365\.com\:2505/g,
-                        'prestatic.tcy365.com'
-                    );
+                result = result.replace(
+                    /static\.tcy365\.com\:2505/g,
+                    'prestatic.tcy365.com'
+                );
+                if(config.isHttps){                   
                     result = result.replace(
                         /static\.tcy365\.org\:1507/g,
                         'teststatic.tcy365.com'
@@ -72,11 +72,6 @@ var portReplace = function() {
                         /static\.tcy365\.org\:1505/g,
                         'innerstatic.tcy365.com'
                     );
-                }else{
-                    result = result.replace(
-                    /static\.tcy365\.com\:2505/g,
-                    'staticpre.tcy365.com:2505'
-                );
                 }
                 
 
