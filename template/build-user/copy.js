@@ -41,6 +41,7 @@ var portReplace = function() {
     list.forEach(obj => {
         const entryHtml = glob.sync(root + '/' + obj.title + '/*.html');
         var portStr = obj.webPort;
+        var env = obj.env;
 
         entryHtml.forEach(f => {
             fs.readFile(f, 'utf8', function(err, data) {
@@ -56,6 +57,7 @@ var portReplace = function() {
                 var result = data.replace(/(={1})((\.)?\/assets)/gi, '$1' + currUrl);
 
                 //result = result.replace(/(\.)?\/static\//gi, currUrl + '/');
+                result = result.replace(/<webenv>/gi, env);
                 result = result.replace(/(={1}(\")?(\')?)((\.)?\/static\/)/gi, '$1' + currUrl + '/');
 
                 result = result.replace(/<configBaseUrl>/g, baseUrl);
