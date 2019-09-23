@@ -3,6 +3,7 @@ const path = require('path')
 const config = require('../config')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const packageConfig = require('../package.json')
+const buildConfig = require('../build-user/config')
 
 exports.assetsPath = function (_path) {
   const assetsSubDirectory = process.env.NODE_ENV === 'production'
@@ -55,13 +56,44 @@ exports.cssLoaders = function (options) {
     }
   }
 
+ // 全局文件引入 当然只想编译一个文件的话可以省去这个函数
+    function resolveResource(name) {
+        return path.resolve(__dirname, name);
+    }
+
+    function generateSassResourceLoader() {
+        var sassUrl = [];
+
+        buildConfig.sass.forEach(function(item){
+            sassUrl.push(resolveResource(item));
+        });
+        var loaders = [
+            cssLoader,
+            'sass-loader',
+            {
+                loader: 'sass-resources-loader',
+                options: {
+                    // 多个文件时用数组的形式传入，单个文件时可以直接使用 path.resolve(__dirname, '../src/assets/scss/index.scss'
+                    resources: sassUrl
+                }
+            }
+        ];
+        if (options.extract) {
+            return ExtractTextPlugin.extract({
+                use: loaders,
+                fallback: 'vue-style-loader'
+            })
+        } else {
+            return ['vue-style-loader'].concat(loaders)
+        }
+    }
   // https://vue-loader.vuejs.org/en/configurations/extract-css.html
   return {
     css: generateLoaders(),
     postcss: generateLoaders(),
     less: generateLoaders('less'),
-    sass: generateLoaders('sass', { indentedSyntax: true }),
-    scss: generateLoaders('sass'),
+    sass: generateSassResourceLoader(),
+    scss: generateSassResourceLoader(),
     stylus: generateLoaders('stylus'),
     styl: generateLoaders('stylus')
   }

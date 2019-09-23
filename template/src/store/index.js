@@ -1,31 +1,21 @@
 import Vue from 'vue';
 import vuex from 'vuex';
+import createPersistedState from 'vuex-persistedstate';
+
+import base from './base.js'; // 全局变量和方法
+
 Vue.use(vuex);
 
-export default new vuex.Store({
-    state: {
-        userId: '',
-        inputUserId: '',
-        OpenId: '',
-        UnionId: ''
+const store = new vuex.Store({
+    modules: {
+        base
     },
-    getters: {
-        isUserId(state) {
-            return state.userId.length > 0;
-        }
-    },
-    mutations: {
-        setUserId(state, id) {
-            state.userId = id;
-        },
-        setInputUserId(state, id) {
-            state.inputUserId = id;
-        },
-        setOpenId(state, id) {
-            state.OpenId = id;
-        },
-        setUnionId(state, id) {
-            state.UnionId = id;
-        }
-    }
+    plugins: [
+        createPersistedState({
+            // storage: window.sessionStorage
+            storage: window.localStorage
+        })
+    ]
 });
+
+export default store;

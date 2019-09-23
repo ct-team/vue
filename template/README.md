@@ -1,13 +1,18 @@
+## 前端技术说明
+
+http://doc.uc108.org:8002/web/#/169?page_id=5636
+
+## 移动端模板说明
+
 ## 更新
 
 1、去除图片压缩功能
 
-2、修复autoprefix build后不一致的问题
-
+2、修复 autoprefix build 后不一致的问题
 
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 npm install
 
@@ -46,18 +51,17 @@ src //源代码目录
 
 ----js
 
---view   //模板目录 可配置多页面 
+--view //模板目录 可配置多页面
 
-----index  //项目文件名 如： index.html 使用index作为文件夹
+----index //项目文件名 如： index.html 使用 index 作为文件夹
 
---pages  //页面目录
-
+--pages //页面目录
 
 --router //路由目录
 
 --config //配置目录
 
---api    //接口目录
+--api //接口目录
 
 --compontents //组件目录
 
@@ -65,13 +69,13 @@ src //源代码目录
 
 ----content //项目组件目录
 
---store  //vuex 数据目录
+--store //vuex 数据目录
 
 ## 多文件方法
 
-在view文件内按实际页面内容建立目录
+在 view 文件内按实际页面内容建立目录
 
-如有2个页面 index.html 与 user.html
+如有 2 个页面 index.html 与 user.html
 
 view 结构 如下
 
@@ -93,4 +97,3 @@ view
 ```
 
 推荐：其他文件也可按照 页面名称 建立相应文件夹
-

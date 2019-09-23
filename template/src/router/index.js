@@ -1,27 +1,29 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Index from '@/pages/index/index.vue';
-import Result2 from '@/pages/index/result2';
 
-const Result = resolve => require(['@/pages/index/result'], resolve);
+const User = () =>
+    import('@/pages/index/user');
 
 Vue.use(VueRouter);
-const routes = [
-    {
-        path: '/',
-        component: Index
-    },
-    {
-        path: '/result',
-        component: Result
-    },
-    {
-        path: '/result2',
-        component: Result2
-    }
 
+const routes = [{
+    path: '/',
+    component: User
+},
+{
+    path: '/user',
+    component: User
+}
+    // ,
+    // {
+    //     path: '*',
+    //     component: ''
+    // }
 ];
 
-export default new VueRouter({
-    routes
+// router实例 在此处可配置滚动行为 scrollBehavior
+const router = new VueRouter({
+    routes: routes
 });
+
+export default router;

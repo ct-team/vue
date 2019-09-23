@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="keywords" content="" />
     <meta name="description" content="" />
-    <title>vux示例</title>
+    <title>Cli-Template</title>
     <meta http-equiv="expires" content="0" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Cache-control" content="no-cache" />
@@ -16,24 +16,44 @@
     <meta name="version" content="<%=htmlWebpackPlugin.options.buildConfig.appVersion%>">
     <meta name="webenv" content="<webenv>">
     <% if(htmlWebpackPlugin.options.currenv == "production") { %>
-    <meta name="AppPublic" content="<configBaseUrl>">
-    <% } %>
-    <% for (var css in htmlWebpackPlugin.files.css) { %>
-    <link href="<%=htmlWebpackPlugin.files.css[css] %>" rel="stylesheet" />
-    <% } %>
-    <!-- end 不要修改 -->
-    <!-- start 代码调试 -->
-    <div data-hide-env="80">
-        <script src="https://cdn.bootcss.com/eruda/1.5.4/eruda.js"></script>
-    <script>
-        eruda.init();
-    </script>
-    </div>
-    <!-- end 自定义 -->
-    <script>
-        !(function(e,t){var n=t.documentElement,d=e.devicePixelRatio||1;function i(){var e=n.clientWidth/7.5;if(n.clientWidth>n.clientHeight){e=n.clientHeight/7.5}n.style.fontSize=e+"px"}if(((function e(){t.body?(t.body.style.fontSize="16px"):t.addEventListener("DOMContentLoaded",e)})(),i(),e.addEventListener("resize",i),e.addEventListener("pageshow",function(e){e.persisted&&i()}),d>=2)){var o=t.createElement("body"),a=t.createElement("div");(a.style.border=".5px solid transparent"),o.appendChild(a),n.appendChild(o),1===a.offsetHeight&&n.classList.add("hairlines"),n.removeChild(o)}})(window,document);
+        <meta name="AppPublic" content="<configBaseUrl>">
+        <% } %>
+            <% for (var css in htmlWebpackPlugin.files.css) { %>
+                <link href="<%=htmlWebpackPlugin.files.css[css] %>" rel="stylesheet" />
+                <% } %>
+                    <!-- end 不要修改 -->
+                    <!-- start 代码调试 -->
+                    <div data-hide-env="80">
+                        <script src="https://static.tcy365.com/cdn/eruda/1.5.4/eruda.js"></script>
+                        <script>
+                            eruda.init();
+                        </script>
+                    </div>
+                    <!-- end 自定义 -->
+                    <script>
+                        !(function(e, t) {
+                            var n = t.documentElement,
+                                d = e.devicePixelRatio || 1;
 
-    </script>
+                            function i() {
+                                var e = n.clientWidth / 7.5;
+                                // 调整宽窄屏比例适配
+                                if (n.clientWidth > n.clientHeight) {
+                                    e = n.clientHeight / 7.5
+                                }
+                                n.style.fontSize = e + "px"
+                            }
+                            if (((function e() {
+                                    t.body ? (t.body.style.fontSize = "16px") : t.addEventListener("DOMContentLoaded", e)
+                                })(), i(), e.addEventListener("resize", i), e.addEventListener("pageshow", function(e) {
+                                    e.persisted && i()
+                                }), d >= 2)) {
+                                var o = t.createElement("body"),
+                                    a = t.createElement("div");
+                                (a.style.border = ".5px solid transparent"), o.appendChild(a), n.appendChild(o), 1 === a.offsetHeight && n.classList.add("hairlines"), n.removeChild(o)
+                            }
+                        })(window, document);
+                    </script>
 </head>
 
 <body>
@@ -50,14 +70,14 @@
     </script>
     <!-- built files will be auto injected 不要修改 -->
     <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
-    <script type="text/javascript" src="<%=htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
-    <% } %>
-    <!-- 错误收集脚本 -->
-    <% if(htmlWebpackPlugin.options.buildConfig.check) { %>
-    <script src="//static.tcy365.com/cdn/jstracker/3.0.1/jstracker.js?t=1" type="text/javascript" crossorigin></script>
-    <% } %>
-    <!-- end 不要修改 -->
-    <script src="./static/a.js?t=_<%=(new Date()).getTime()%>"></script>
+        <script type="text/javascript" src="<%=htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
+        <% } %>
+            <!-- 错误收集脚本 -->
+            <% if(htmlWebpackPlugin.options.buildConfig.check) { %>
+                <script src="//static.tcy365.com/cdn/jstracker/3.0.1/jstracker.js?t=1" type="text/javascript" crossorigin></script>
+                <% } %>
+                    <!-- end 不要修改 -->
+                    <script src="./static/a.js?t=_<%=(new Date()).getTime()%>"></script>
 </body>
 
 </html>
