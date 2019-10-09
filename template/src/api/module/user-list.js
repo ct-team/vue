@@ -5,7 +5,7 @@ export default (self, options) => {
     return new Promise((resolve, reject) => {
         self.$nat.http
             .ajax({
-                url: self.$Interface.userList,
+                url: self.$envData.Interface.userList,
                 method: 'get',
                 ...options
             })

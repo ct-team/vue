@@ -37,13 +37,15 @@ Vue.use(CodeConfig, CODE);
 // axios.defaults.withCredentials = true;
 
 // Vue-prototype
-Vue.prototype.$Interface = Vue.$nat.envConfig.getData().data;
+Vue.prototype.$envData = Vue.$nat.envConfig.getData().data;
 
 // -----------介绍code的使用方式，可删除----------
 console.log('code值：' + Vue.prototype.$natCode.success);
 console.log('code值提示信息：' + Vue.prototype.$natCodeMsg.success);
 console.log('code值不存在，返回默认提示default对应的msg：' + Vue.prototype.$natCodeError(0));
-console.log('code值不存在，返回自定义对应的msg：' + Vue.prototype.$natCodeError(100001, '没有权限'));
+console.log(
+    'code值不存在，返回自定义对应的msg：' + Vue.prototype.$natCodeError(100001, '没有权限')
+);
 // vue单文件组件使用方式：
 // this.$natCode.notLogin;
 // this.$natCodeMsg.notLogin;

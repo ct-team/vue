@@ -1,29 +1,26 @@
 <template>
-  <div id="user-index">
-    <!-- top-header -->
-    <top-header></top-header>
+    <div id="user-index">
+        <!-- top-header -->
+        <top-header></top-header>
 
-    <!-- list -->
-    <div class="list"
-         v-for="(item, index) in userList"
-         :key="index">
-      <span>ID：{{item.UserId}}，</span>
-      <span>昵称：{{item.UserName}}</span>
+        <!-- list -->
+        <div class="list"
+             v-for="(item, index) in userList"
+             :key="index">
+            <span>ID：{{item.UserId}};</span>
+            <span>昵称：{{item.UserName}}.</span>
+        </div>
     </div>
-  </div>
 </template>
 
 <script>
 import ajaxUserList from '@/api/module/user-list.js';
 export default {
-    props: [],
-    components: {},
     data() {
         return {
             userList: []
         };
     },
-    created() {},
     mounted() {
         this.init();
     },
@@ -65,14 +62,14 @@ export default {
 
 <style lang='scss'>
 #user-index {
-  .list {
-    margin: 0 40px;
-    padding: 20px 0;
-    color: #323233;
-    font-size: 28px;
-    background-color: #fafafa;
-    margin-bottom: 20px;
-    padding-left: 40px;
-  }
+    .list {
+        margin: 0 40px;
+        padding: 20px 0;
+        color: #323233;
+        font-size: 28px;
+        background-color: #fafafa;
+        margin-bottom: 20px;
+        padding-left: 40px;
+    }
 }
 </style>
